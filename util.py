@@ -9,5 +9,7 @@ def u(message: str = 'current'):
 m = [[0 for i in range(10000)] for _ in range(100)]
 u()
 
+from collections import deque
+q = deque()
 # new line from 1112
 # new line from Ipad
