@@ -10,10 +10,11 @@ def union(parent, a, b):
     rootA = find(parent, a)
     rootB = find(parent, b)
 
-    if rootA < rootB:
-        parent[rootB] = rootA
+    if rootA == rootB:
+        return False
     else:
         parent[rootA] = rootB
+        return True
 
 
 import sys
