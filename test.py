@@ -1,4 +1,4 @@
-a = float('inf')
-a -= 100
+from math import factorial
 
-print(ord('Z') - ord('a'))
+
+print(factorial(20))
