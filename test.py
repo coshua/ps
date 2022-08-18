@@ -1,4 +1,3 @@
 from math import factorial
+d = dict()
 
-
-print(factorial(20))
