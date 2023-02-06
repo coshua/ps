@@ -1,3 +1,4 @@
-from math import factorial
-d = dict()
-
+w = 'word'
+s= set()
+s.add(w)
+print('a' < 'a')
