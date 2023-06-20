@@ -9,5 +9,6 @@ def prime_list(n):
                 sieve[j] = False
     return [i for i in range(2, n + 1) if sieve[i] == True]
 
+
 # inclusive
-print(prime_list(16))
+print(prime_list(10))
