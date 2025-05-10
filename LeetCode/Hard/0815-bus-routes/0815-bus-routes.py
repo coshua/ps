@@ -1,6 +1,6 @@
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
-        station = [[] for i in range(10**6 + 1)]
+        station = defaultdict(list)
         for i in range(len(routes)):
             for stop in routes[i]:
                 station[stop].append(i)
