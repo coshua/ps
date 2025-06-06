@@ -17,14 +17,16 @@ class Solution:
         def helper(node):
             if not node:
                 return
-            cands = []
+            max1 = max2 = 0
             for nxt in node.children:
-                cands.append(helper(nxt))
-            cands.sort(reverse=True)
+                cand = helper(nxt)
+                if cand > max1:
+                    max1, max2 = cand, max1
+                elif cand > max2:
+                    max2 = cand
             nonlocal ans
-            while len(cands) < 2:
-                cands.append(0)
-            ans = max(ans, cands[0] + cands[1])
-            return max(cands) + 1
+
+            ans = max(ans, max1 + max2)
+            return max1 + 1
         helper(root)
         return ans
