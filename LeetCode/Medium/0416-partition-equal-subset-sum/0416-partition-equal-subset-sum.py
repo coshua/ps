@@ -3,19 +3,25 @@ class Solution:
         total = sum(nums)
         if total % 2:
             return False
-        
-        d = {} # partial_sum -> list
-        d[0] = []
+        dp = set([0])
+        path = {0: -1}
         t = total // 2
+
         for n in nums:
-            if t-n in d:
-                d[t] = d[t-n] + [n]
-                print(d[t])
-                return True
-            nxt = []
-            for key in d:
-                if key+n not in d:
-                    nxt.append((key+n, d[key] + [n]))
-            for key, elem in nxt:
-                d[key] = elem
+            ns = set()
+            for key in dp:
+                if key+n not in dp:
+                    ns.add(key+n)
+                    path[key+n] = key
+            dp = dp | ns
+        
+        if t in dp:
+            cur = t
+            prev = path[t]
+            ans = []
+            while prev > -1:
+                ans.append(cur-prev)
+                cur = prev
+                prev = path[prev]
+            return True
         return False
